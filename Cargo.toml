@@ -1,0 +1,10 @@
+[package]
+name = "sigmaos_text_editor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+name = "sigmaos_text_editor"
+path = "src/lib.rs"
