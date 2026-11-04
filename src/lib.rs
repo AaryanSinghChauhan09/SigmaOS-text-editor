@@ -1,31 +1,14 @@
-// SPDX-License-Identifier: Apache-2.0
-//! SigmaOS-text-editor - Linux Mint/Omarchy/Arch-inspired component for SigmaOS
-//! Part of SigmaOS multi-repository architecture
+//! SigmaOS-text-editor — Text editor component for SigmaOS
+#![allow(dead_code)]
 
-#![no_std]
+pub mod config;
+pub mod error;
+pub mod service;
 
-/// Component struct
-pub struct Component {
-    name: &'static str,
-}
+pub use config::Config;
+pub use error::{ComponentError, Result};
+pub use service::Service;
 
-impl Component {
-    pub fn new() -> Self {
-        Self { name: "SigmaOS Component" }
-    }
-}
-
-impl Default for Component {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn test_creation() {
-        let c = super::Component::new();
-        assert_eq!(c.name, "SigmaOS Component");
-    }
+pub fn version() -> &'static str {
+    env!("CARGO_PKG_VERSION")
 }
